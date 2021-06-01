@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
       isImageActivated = (isImageActivated % 2) + 1
       if(isImageActivated === 2){
         circleImage.style.transform = "translateX(" + 800 +"px)";
-        circleImage.style.boxShadow = "0px 0px 20px black";
         navbarContent.style.width = "920px";
         navbarContent.style.display = "block";
         navbarContent.style.animation = "enlarge ease-in-out 0.5s";
@@ -85,7 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
         circleImage.style.transform = "translateX(" + 0 +"px)";
         navbarContent.style.width = "120px";
         navbarContent.style.animation = "shorten ease-in-out 0.5s"; 
-        
+        setTimeout(() => {
+          navbarContent.style.display = "none";
+        }, 390);
       }
     });
   }
