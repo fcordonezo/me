@@ -49,12 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setAge(){
-    var years = document.getElementById("years");
-    var months = document.getElementById("months");
-    var days = document.getElementById("days");
-    var hours = document.getElementById("hours");
-    var mins = document.getElementById("mins");
-    var secs = document.getElementById("secs");
     var age = getAge();
     secs.innerHTML = (age[5] < 10) ? "0" + age.pop() : age.pop();
     mins.innerHTML = (age[4] < 10) ? "0" + age.pop() : age.pop();
@@ -91,4 +85,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   showTopCard();
+
+  var actualBackgroundPos = 0;
+  window.addEventListener("scroll", () => {
+    
+    if(window.pageYOffset <= 300){
+      actualBackgroundPos = (250 - window.pageYOffset * 0.4);
+      background.style.backgroundPositionY = (250 - window.pageYOffset * 0.4) + "px";
+    }
+    else{
+      background.style.backgroundPositionY = (actualBackgroundPos - 60 + window.pageYOffset * 0.2) + "px";
+    }
+    if(window.pageYOffset >= 90){
+      c.style.animation = "move-c ease-in-out 0.5s";
+      c.style.color = "red";
+    }
+    
+    if(window.pageYOffset >= 180){
+      a.style.animation = "move-a ease-in-out 0.5s";
+      a.style.color = "red";
+    }
+    
+    if(window.pageYOffset >= 270){
+      m.style.animation = "move-m ease-in-out 0.5s";
+      m.style.color = "red";
+    }
+    
+    if(window.pageYOffset >= 360){
+      i.style.animation = "move-i ease-in-out 0.5s";
+      i.style.color = "red";
+    }
+    
+    if(window.pageYOffset >= 450){
+      l.style.animation = "move-l ease-in-out 0.5s";
+      l.style.color = "red";
+    }
+    if(window.pageYOffset >= 540){
+      o.style.animation = "move-o ease-in-out 0.5s";
+      o.style.color = "red";
+    }
+  });
 });
